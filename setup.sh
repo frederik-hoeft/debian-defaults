@@ -14,9 +14,7 @@ apt-get install -y --no-install-recommends \
     vim \
     wget \
     git \
-    zsh \
-    zsh-autosuggestions \
-    zsh-syntax-highlighting
+    zsh
 
 chsh -s "$(which zsh)"
 
@@ -26,5 +24,13 @@ sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/ins
 mv ~/.oh-my-zsh /opt/shared/oh-my-zsh/oh-my-zsh
 wget https://raw.githubusercontent.com/frederik-hoeft/dot-files/refs/heads/main/default.zshrc -O /opt/shared/oh-my-zsh/zshrc
 echo "source /opt/shared/oh-my-zsh/zshrc" > ~/.zshrc
+
+# install plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions.git /opt/shared/oh-my-zsh/oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /opt/shared/oh-my-zsh/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+
+# clone to /opt/shared/oh-my-zsh/
+git clone https://github.com/frederik-hoeft/oh-my-zsh-themes.git /opt/shared/oh-my-zsh/oh-my-zsh-themes
+ln -s /opt/shared/oh-my-zsh/oh-my-zsh-themes/themes/fred.zsh-theme /opt/shared/oh-my-zsh/oh-my-zsh/custom/themes/fred.zsh-theme
 
 wget https://raw.githubusercontent.com/frederik-hoeft/dot-files/refs/heads/main/default.vimrc -O ~/.vimrc
